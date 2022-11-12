@@ -1,0 +1,134 @@
+﻿@model IEnumerable<prjShoppingCar.Models.tOrderDetail>
+
+@{
+    ViewBag.Title = "會員購物車清單";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+<h2>會員購物車清單</h2>
+
+@*購物車表格*@
+
+<div class="table-responsive">
+    @*0909新功能 -響應是表格*@
+    <table class="table  table-striped">
+        <tr class="info ">
+            @*0909*@
+            <!--<th>-->
+                @*@Html.DisplayNameFor(model => model.fOrderGuid)*@
+                <!--<h4>訂單編號</h4>
+            </th>-->
+            <th>
+                @*@Html.DisplayNameFor(model => model.fUserId)*@
+                <h4>會員帳號</h4>
+                
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.fPId)*@
+                <h4>產品編號</h4>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.fName)*@
+                <h4>商品名稱</h4>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.fPrice)*@
+                <h4>商品價格</h4>
+            </th>
+            <!--<th>-->
+                @*@Html.DisplayNameFor(model => model.fQty)*@
+                <!--<h4>訂購數量</h4>
+            </th>-->
+            <th>
+                @*@Html.DisplayNameFor(model => model.fIsApproved)*@
+                <h4>是否為訂單</h4>
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.fOrderGuid)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.fUserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fPId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fPrice)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.fQty)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.fIsApproved)
+        </td>
+        @*<td>
+            <a href="@Url.Action("DeleteCar")?fId=@item.fId"
+               class="btn btn-danger"
+               onclick="return confirm('確定放棄購買 @item.fName 嗎？' )">刪除購物車</a>
+        </td>*@
+        <td>
+            @Html.ActionLink("刪除購物車", "DeleteCar", "Member", new { fId = item.fId, fcId = item.fcid }, null)
+        </td>
+    </tr>
+        }
+
+    </table>
+    </div>
+
+    <form action="@Url.Action("ShoppingCar")" method="post">
+        <div class="form-horizontal">
+            <h4>填寫訂單收件人資料</h4>
+            <hr />
+
+            <div class="form-group">
+                <span class="control-label col-md-2">收件人姓名</span>
+                <div class="col-md-10">
+                    <input type="text" id="fReceiver" name="fReceiver" required="required" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2">收件人信箱</span>
+                <div class="col-md-10">
+                    <input type="email" id="fEmail" name="fEmail" required="required" class="form-control" />
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                <span class="control-label col-md-2">收件人地址</span>
+                <div class="col-md-10">
+                    <input type="text" id="fAddress" name="fAddress" required="required" class="form-control" />
+                </div>
+            </div>*@
+
+            <div class="form-group">
+                <span class="control-label col-md-2">交易地點</span>
+                <div class="col-md-10">
+                    <select id="fAddress" name="fAddress" required="required" class="form-control">
+                        <option value="一餐">一餐</option>
+                        <option value="二餐">二餐</option>
+                        <option value="明園">明園</option>
+                        <option value="觀光語言大樓P棟">觀光語言大樓P棟</option>
+                        <option value="停車場">停車場</option>
+                    </select>
+                    </div>
+                </div>
+
+            <img src="~/images/20180314.png" />
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="確認訂購" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </form>

@@ -1,0 +1,148 @@
+﻿@model IEnumerable<prjShoppingCar.Models.tOrder>
+
+@{
+    ViewBag.Title = "會員訂單列表";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+
+
+<div class="table-responsive">
+    @*0909新功能 -響應是表格*@
+
+    <h2>會員訂單列表</h2>
+    @*訂單表格*@
+
+    <table class="table  table-striped ">
+        @*0909新功能 -條文行深淺*@
+        @*跑表格第一列名稱*@
+        <tr class="info">
+            @*0909新功能 -藍色橫條*@
+            <th>
+                @*@Html.DisplayNameFor(model => model.fOrderGuid)*@
+                <h4>訂單編號</h4>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.fUserId)*@
+                <h4>會員帳號</h4>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.fReceiver)*@
+                <h4>收件人姓名</h4>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.fEmail)*@
+                <h4>信箱</h4>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.fAddress)*@
+                <h4>領貨地點</h4>
+            </th>
+            <th>
+                <h4>訂購時間</h4>
+                @*@Html.DisplayNameFor(model => model.fDate)*@
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {@* 抓取所有資料*@
+        if (item.fEnd != "EEEEEEEEEE") { 
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fOrderGuid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fUserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fReceiver)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fDate)
+            </td>
+            <td>
+                <a href="@Url.Action("OrderDetail")?fOrderGuid=@item.fOrderGuid"
+                   class="btn btn-info">訂單明細</a>
+            </td>
+        </tr>
+            }
+        }
+
+    </table>
+
+    <h4>已完成訂單</h4>
+
+    <table class="table  table-striped ">
+        @*0909新功能 -條文行深淺*@
+
+
+        @*跑表格第一列名稱*@
+        <tr class="info">
+            @*0909新功能 -藍色橫條*@
+            <th>
+                @*@Html.DisplayNameFor(model => model.fOrderGuid)*@
+                <h4>訂單編號</h4>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.fUserId)*@
+                <h4>會員帳號</h4>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.fReceiver)*@
+                <h4>收件人姓名</h4>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.fEmail)*@
+                <h4>信箱</h4>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.fAddress)*@
+                <h4>領貨地點</h4>
+            </th>
+            <th>
+                <h4>訂購時間</h4>
+                @*@Html.DisplayNameFor(model => model.fDate)*@
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {@* 抓取所有資料*@
+        if (item.fEnd == "EEEEEEEEEE")
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fOrderGuid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fUserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fReceiver)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fDate)
+            </td>
+            <td>
+                <a href="@Url.Action("OrderDetail")?fOrderGuid=@item.fOrderGuid"
+                   class="btn btn-info">訂單明細</a>
+            </td>
+        </tr>
+            }
+        }
+
+    </table>
+</div>

@@ -1,0 +1,234 @@
+﻿@model IEnumerable<prjShoppingCar.Models.tProduct>
+
+@{
+    ViewBag.Title = "MyCommodity";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+<h2>我的商品</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fPId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fPrice)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.fImg)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.ffaculty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fdepartment)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.fImages)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.fstate)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.fcId)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.fEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fsgtxt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fisbn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fclass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fPrice_s)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.fUId)
+        </th>*@
+        <th></th>
+    </tr>
+
+
+@foreach (var item in Model) {
+    if (item.fsell != "EEEEEEEEEE") {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fPId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fPrice)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.fImg)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.ffaculty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fdepartment)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.fImages)
+        </td>*@
+        @*<td>
+            @Html.DisplayFor(modelItem => item.fstate)
+        </td>*@
+        @*<td>
+            @Html.DisplayFor(modelItem => item.fcId)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.fEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fsgtxt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fisbn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fclass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fPrice_s)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.fUId)
+        </td>*@
+        <td>
+            <p><a href="@Url.Action("SellMyCommdity", "Member")?fId=@item.fId" class="btn btn-primary">產品完單</a></p>
+            <p><a href="@Url.Action("DeleteMyCommdity", "Member")?fId=@item.fId" class="btn btn-primary">刪除此商品</a></p>
+            @*@Html.ActionLink("刪除此產品", "DeleteMyCommdity", new { fId = item.fId })*@
+        </td>
+    </tr>
+    }
+}
+
+</table>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fPId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fPrice)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.fImg)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.ffaculty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fdepartment)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.fImages)
+            </th>*@
+        @*<th>
+                @Html.DisplayNameFor(model => model.fstate)
+            </th>*@
+        @*<th>
+                @Html.DisplayNameFor(model => model.fcId)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.fEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fsgtxt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fisbn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fclass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fPrice_s)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.fUId)
+            </th>*@
+        <th></th>
+    </tr>
+
+    <h4>已售出商品</h4>
+
+    @foreach (var item in Model)
+    {
+        if (item.fsell == "EEEEEEEEEE")
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fPId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fPrice)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.fImg)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.ffaculty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fdepartment)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.fImages)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.fstate)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.fcId)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.fEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fsgtxt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fisbn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fclass)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fPrice_s)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.fUId)
+                    </td>*@
+                <td>
+                    <p><a href="@Url.Action("SellMyCommdity", "Member")?fId=@item.fId" class="btn btn-primary">產品完單</a></p>
+                    <p><a href="@Url.Action("DeleteMyCommdity", "Member")?fId=@item.fId" class="btn btn-primary">刪除此商品</a></p>
+                    @*@Html.ActionLink("刪除此產品", "DeleteMyCommdity", new { fId = item.fId })*@
+                </td>
+            </tr>
+        }
+    }
+
+</table>

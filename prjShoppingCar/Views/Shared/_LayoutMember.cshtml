@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+@*登入後頁面 網站頭尾 下拉選單*@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 銘傳二手書拍賣網</title>
+
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">@*控制摺疊按鈕(三條線那個)*@
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("銘傳二手書拍賣網", "Index", "Member", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse " >@*控制產品列表那行的響應市*@
+                <link href="~/Content/gg.css" rel="stylesheet" type="text/css" />
+                <ul class="drop-down-menu ">
+                    <li >
+                        <a href="#">產品列表</a>
+                            <ul dropzone="">
+                                <li>
+                                    <a href="#">管理學院</a>
+                                    <ul>
+                                        <li>
+                                            @Html.ActionLink("國際企業系所", "Index", "Member", new { zfdepartment = "國際企業系所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("風險管理與保險學系/所", "Index", "Member", new { zfdepartment = "風險管理與保險學系/所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("會計學系/所", "Index", "Member", new { zfdepartment = "會計學系/所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("企業管理學系/所", "Index", "Member", new { zfdepartment = "企業管理學系/所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("財務金融學系/所", "Index", "Member", new { zfdepartment = "財務金融學系/所", page = 1 }, null)
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">資訊學院</a>
+                                    <ul>
+                                        <li>
+                                            @Html.ActionLink("資訊管理學系/所", "Index", "Member", new { zfdepartment = "資訊管理學系/所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("資訊傳播工程學系/所", "Index", "Member", new { zfdepartment = "資訊傳播工程學系/所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("資訊工程學系/所", "Index", "Member", new { zfdepartment = "資訊工程學系/所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("電腦與通訊工程學系/所", "Index", "Member", new { zfdepartment = "電腦與通訊工程學系/所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("電子工程學系/所", "Index", "Member", new { zfdepartment = "電子工程學系/所", page = 1 }, null)
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">傳播學院</a>
+                                    <ul>
+                                        <li>
+                                            @Html.ActionLink("廣播電視學系", "Index", "Member", new { zfdepartment = "廣播電視學系", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("新聞學系", "Index", "Member", new { zfdepartment = "新聞學系", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("廣告暨策略行銷學系", "Index", "Member", new { zfdepartment = "廣告暨策略行銷學系", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("新媒體暨傳播管理學系/所", "Index", "Member", new { zfdepartment = "新媒體暨傳播管理學系/所", page = 1 }, null)
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">觀光學院</a>
+                                    <ul>
+                                        <li>
+                                            @Html.ActionLink("觀光事業學系 /所", "Index", "Member", new { zfdepartment = "觀光事業學系 /所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("休閒遊憩管理學系", "Index", "Member", new { zfdepartment = "休閒遊憩管理學系", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("餐旅管理學系", "Index", "Member", new { zfdepartment = "餐旅管理學系", page = 1 }, null)
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">教育暨應用語文學院</a>
+                                    <ul>
+                                        <li>
+                                            @Html.ActionLink("應用中國文學系/所", "Index", "Member", new { zfdepartment = "應用中國文學系/所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("應用英語學系/所", "Index", "Member", new { zfdepartment = "應用英語學系/所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("應用日語學系/所", "Index", "Member", new { zfdepartment = "應用日語學系/所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("英語教學中心", "Index", "Member", new { zfdepartment = "英語教學中心", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("教育研究所", "Index", "Member", new { zfdepartment = "教育研究所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("華語文教學學系", "Index", "Member", new { zfdepartment = "華語文教學學系", page = 1 }, null)
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">設計學院</a>
+                                    <ul>
+                                        <li>
+                                            @Html.ActionLink("商業設計學系/所", "Index", "Member", new { zfdepartment = "商業設計學系/所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("商品設計學系/所", "Index", "Member", new { zfdepartment = "商品設計學系/所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("數位媒體設計學系/所", "Index", "Member", new { zfdepartment = "數位媒體設計學系/所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("都市規劃與防災學系/所", "Index", "Member", new { zfdepartment = "都市規劃與防災學系/所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("建築學系/所", "Index", "Member", new { zfdepartment = "建築學系/所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("動漫文創設計學士學位學程", "Index", "Member", new { zfdepartment = "動漫文創設計學士學位學程", page = 1 }, null)
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">社會科學院</a>
+                                    <ul>
+                                        <li>
+                                            @Html.ActionLink("公共事務學系/所", "Index", "Member", new { zfdepartment = "公共事務學系/所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("諮商與工商心理學系/所", "Index", "Member", new { zfdepartment = "諮商與工商心理學系/所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("犯罪防治學系/所", "Index", "Member", new { zfdepartment = "犯罪防治學系/所", page = 1 }, null)
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">國際學院</a>
+                                    <ul>
+                                        <li>
+                                            @Html.ActionLink("國際事務研究所", "Index", "Member", new { zfdepartment = "國際事務研究所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("國際事務與外交學士學位學程", "Index", "Member", new { zfdepartment = "國際事務與外交學士學位學程", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("國際企業與貿易學士學位學程", "Index", "Member", new { zfdepartment = "國際企業與貿易學士學位學程", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("新聞與大眾傳播學士學位學程", "Index", "Member", new { zfdepartment = "新聞與大眾傳播學士學位學程", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("時尚與創新管理學士學位學程", "Index", "Member", new { zfdepartment = "時尚與創新管理學士學位學程", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("旅遊與觀光學士學位學程", "Index", "Member", new { zfdepartment = "旅遊與觀光學士學位學程", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("資訊科技應用與管理學士學位學程", "Index", "Member", new { zfdepartment = "資訊科技應用與管理學士學位學程", page = 1 }, null)
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">金融科技學院</a>
+                                    <ul>
+                                        <li>
+                                            @Html.ActionLink("經濟與金融學系/所", "Index", "Member", new { zfdepartment = "經濟與金融學系/所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("應用統計與資料科學學系/所", "Index", "Member", new { zfdepartment = "應用統計與資料科學學系/所", page = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("金融科技應用學士/碩士學位學程", "Index", "Member", new { zfdepartment = "金融科技應用學士/碩士學位學程", page = 1 }, null)
+                                        </li>
+                                    </ul>
+                                </li>
+                                @*<li>*@
+                                @*<a href="#">其他</a>*@
+                                @*<ul>*@
+                                <li>
+                                    @Html.ActionLink("其他", "Index", "Member", new { zfdepartment = "其他", page = 1 }, null)
+                                </li>
+                                @*</ul>*@
+                                @*</li>*@
+                            </ul>
+                    </li>
+
+                    <li>@Html.ActionLink("產品上架", "Create", "Member")</li>
+                    <li>@Html.ActionLink("購物車", "ShoppingCar", "Member")</li>
+                    <li>@Html.ActionLink("訂單", "OrderList", "Member")</li>
+                    <li>@Html.ActionLink("登出", "Logout", "Member")</li>
+                    <li>@Html.ActionLink("會員資料", "Member", "Member")</li>
+                    @*<li><a href="#">@Session["WelCome"]</a></li>*@
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - 銘傳二手書拍賣網</p>
+            <h5>官方LineID：@@833xidwn</h5>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

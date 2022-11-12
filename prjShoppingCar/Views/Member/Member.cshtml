@@ -1,0 +1,79 @@
+﻿@model IEnumerable<prjShoppingCar.Models.tMember>
+
+@* 會員資料*@
+
+@{
+    ViewBag.Title = "Member";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+<h2>會員個人資料</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<!--<table class="table">
+    <tr>
+        <th>-->
+            @*@Html.DisplayNameFor(model => model.fUserId)*@
+            <!--<h4>會員帳號</h4>
+        </th>
+        <th>-->
+            @*@Html.DisplayNameFor(model => model.fPwd)*@
+            <!--<h4>會員密碼</h4>
+        </th>
+        <th>-->
+            @*@Html.DisplayNameFor(model => model.fName)*@
+            <!--<h4>會員名稱</h4>
+        </th>
+        <th>-->
+            @*@Html.DisplayNameFor(model => model.fEmail)*@
+            <!--<h4>會員信箱</h4>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fUserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fPwd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fEmail)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.fId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.fId }) |
+
+            </td>
+        </tr>
+    }
+
+</table>-->
+
+@foreach (var item in Model)
+{
+    <div class="row" style="margin-top:5px;">
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h4>會員帳號：@item.fUserId</h4>
+                    <h4>會員密碼：@item.fPwd</h4>
+                    <h4>會員名稱：@item.fName</h4>
+                    <h4>會員信箱：@item.fEmail</h4>
+                    <p><a href="@Url.Action("Edit", "Member")?fEmpId=@item.fId" class="btn btn-primary">編輯</a></p>
+                    <p><a href="@Url.Action("MyCommodity", "Member")" class="btn btn-primary">我的商品</a></p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+}

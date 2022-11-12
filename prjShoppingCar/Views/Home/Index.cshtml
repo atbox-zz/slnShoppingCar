@@ -1,0 +1,35 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<prjShoppingCar.Models.tProduct>
+
+@*沒屁用*@
+
+@{
+    ViewBag.Title = "產品列表";
+}
+
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+
+<div class="row" style="margin-top:20px;">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <img src="~/images/@item.fImg" style="width:200px;height:270px;">
+                    <div class="caption">
+                        <h4>@item.fName</h4>
+                        <h4>@item.fdepartment</h4>
+                        <p>單價：@item.fPrice</p>販售價格
+                        <p>販售價格：@item.fPrice_s</p>
+                        <p>@item.fisbn</p>
+                        <h5>@item.fsgtxt</h5>
+                        <p><a href="@Url.Action("AddCar", "Member")?fPId=@item.fPId" class="btn btn-primary">加入購物車</a></p>
+                    </div>
+                </div>
+            </div>
+        }
+    <br>
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>

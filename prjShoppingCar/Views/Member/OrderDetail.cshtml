@@ -1,0 +1,75 @@
+﻿@model IEnumerable<prjShoppingCar.Models.tOrderDetail>
+
+@**@
+
+@{
+    ViewBag.Title = "訂單明細";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+<a href="javascript:history.back(-1)">返回上一頁</a>
+
+<h2>訂單明細</h2>
+
+<div class="table-responsive ">
+    <table class="table table-striped">
+
+        <tr class=" info">
+            <th>
+                @*@Html.DisplayNameFor(model => model.fOrderGuid)*@
+                <h4>訂單編號</h4>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.fUserId)*@
+                <h4>會員帳號</h4>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.fPId)*@
+                <h4>產品編號</h4>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.fName)*@
+                <h4>商品名稱</h4>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.fPrice)*@
+                <h4>商品價格</h4>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.flineID)*@
+                <h4>LineID</h4>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.fIsApproved)*@
+                <h4>結單狀態</h4>
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fOrderGuid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fUserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fPId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.flineID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fIsApproved)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

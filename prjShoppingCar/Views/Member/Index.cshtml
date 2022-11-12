@@ -1,0 +1,127 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<prjShoppingCar.Models.tProduct>
+
+@*產品明細類表 在此處理*@
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+
+    var zfdepartment = ViewBag.fdepartment;
+    var zfclass = ViewBag.fclass;
+
+}
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+
+@*Response.Write("<Script language='Javascript'>");
+    Response.Write("alert('你好~~')");
+    Response.Write("</" + "Script>");*@
+
+
+<p>
+    年級：
+    @Html.ActionLink("一", "Index", "Member", new { zfdepartment = zfdepartment, zfclass = '一', page = 1 }, null)
+    @Html.ActionLink("二", "Index", "Member", new { zfdepartment = zfdepartment, zfclass = '二', page = 1 }, null)
+    @Html.ActionLink("三", "Index", "Member", new { zfdepartment = zfdepartment, zfclass = '三', page = 1 }, null)
+    @Html.ActionLink("四", "Index", "Member", new { zfdepartment = zfdepartment, zfclass = '四', page = 1 }, null)
+</p>
+
+<div class="row" style="margin-top: 10px ">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <img src="~/images/@item.fImg" style="width:200px;height:270px;">
+                <div class="caption">
+                    <h4>@item.fName</h4>
+                    <h4>@item.fdepartment</h4>
+                    <p>販售價格：@item.fPrice</p>
+                    <p>原價：@item.fPrice_s</p>
+                    <p>ISBN碼：@item.fisbn</p>
+                    <p>聯絡資訊：@item.fEmail</p>
+                    <p>LineID：@item.fLine</p>
+                    <h4><font color="red">備註：@item.fsgtxt</font></h4>
+                    @*@Html.ActionLink("加入購物車", "AddCar", "Member", new { fPId = @item.fPId, fcId = @item.fcId }, null)*@
+                    @*?fPId=@item.fPId*@
+                    <p><a href="@Url.Action("AddCar", "Member")?fPId=@item.fPId" class="btn btn-primary">加入購物車</a></p>
+
+                </div>
+            </div>
+        </div>
+    }
+
+        <div class="caption">
+            <h4><font color="white">_____</font></h4>@*調整分頁按鈕*@
+        </div>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { zfdepartment, zfclass, page }))
+    </div>
+
+    @*變中文*@
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+
+
+
+
+    <!--<table class="table">
+        <tr>
+            <th>-->
+    @*@Html.DisplayNameFor(model => model.fPId)*@
+    <!--</th>
+    <th>-->
+    @*@Html.DisplayNameFor(model => model.fName)*@
+    <!--<h5>商品名稱</h5>
+    </th>
+    <th>-->
+    @*@Html.DisplayNameFor(model => model.fPrice)*@
+    <!--<h5>販售價格</h5>
+    </th>
+    <th>-->
+    @*@Html.DisplayNameFor(model => model.fImg)*@
+    <!--<h5>商品圖片</h5>
+    </th>
+    <th>-->
+    @*@Html.DisplayNameFor(model => model.ffaculty)*@
+    <!--<h5>所屬院</h5>
+    </th>
+    <th>-->
+    @*@Html.DisplayNameFor(model => model.fdepartment)*@
+    <!--<h5>所屬系</h5>
+        </th>
+        <th></th>
+    </tr>-->
+    @*@foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fPId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fImg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ffaculty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fdepartment)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.fId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.fId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.fId })
+                </td>
+            </tr>
+        }*@
+
+    <!--</table>-->

@@ -1,0 +1,147 @@
+﻿@model prjShoppingCar.Models.tProduct
+@*登入後 產品上架頁面*@
+@{
+    ViewBag.Title = "產品上架";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+<h2>產品上架</h2>
+
+
+@using (Html.BeginForm("Create", "Member", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.fPId, "商品編號", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fPId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.fPId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.fName, "商品名稱", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.fName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.fName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    @*資料上架選擇科院系 分隔行*@
+    <div class="form-group">
+        @Html.LabelFor(model => model.ffaculty, "選擇系所", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @*@Html.EditorFor(model => model.ffaculty, new { htmlAttributes = new { @class = "form-control" } })*@
+            @*@Html.DropDownListFor(model => model.ffaculty, ViewBag.ffaculty as SelectList, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ffaculty, "", new { @class = "text-danger" })*@
+            @Html.DropDownListFor(model => model.fdepartment, ViewBag.fdepartment as SelectList, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.fdepartment, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    @*資料上架選擇科院系 分隔行*@
+
+    @*資料上架選擇科院系 分隔行*@
+    <div class="form-group">
+        @Html.LabelFor(model => model.fclass, "選擇年級", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.fclass, ViewBag.fclass as SelectList, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.fclass, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    @*資料上架選擇科院系 分隔行*@
+
+    @*資料上架選擇科系 分隔行*@
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.fdepartment, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fdepartment, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.fdepartment, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+    @*資料上架選擇科系 分隔行*@
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.fPrice, "販售價格", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.fPrice, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.fPrice, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.fPrice_s, "原價", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.fPrice_s, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.fPrice_s, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.fEmail, "聯絡信箱", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.fEmail, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.fEmail, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.fLine, "LineID", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.fLine, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.fLine, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.fisbn, "ISBN碼", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.fisbn, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.fisbn, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.fsgtxt, "備註", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.fsgtxt, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.fsgtxt, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.fImg, "商品圖片", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" id="photo" name="photo" @*class="btn btn-default"*@ />
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="新增" class="btn btn-default" />
+        </div>
+    </div>
+
+</div>
+
+
+}
+
+<div>
+    @Html.ActionLink("返回產品列表", "Index")
+</div>
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
